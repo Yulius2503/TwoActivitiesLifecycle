@@ -16,22 +16,8 @@ public class MainActivity extends AppCompatActivity {
     public static final int TEXT_REQUEST=1;
     public static final String EXTRA_MESSAGE = "com.project.mainactivity2.extra.MESSAGE";
 
-
     @Override
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-        if (requestCode == TEXT_REQUEST){
-            if (resultCode == RESULT_OK){
-                String reply=data.getStringExtra(SecondActivity.EXTRA_REPLY);
-                mReplyTextView.setText(reply);
-                mReplyTextView.setVisibility(View.VISIBLE);
-                mReplyHeadTextView.setVisibility(View.VISIBLE);
-
-            }
-        }
-    }
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mMessageEditText = findViewById(R.id.editText_main);
@@ -50,6 +36,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        if (requestCode == TEXT_REQUEST){
+            if (resultCode == RESULT_OK){
+                String reply=data.getStringExtra(SecondActivity.EXTRA_REPLY);
+                mReplyTextView.setText(reply);
+                mReplyTextView.setVisibility(View.VISIBLE);
+                mReplyHeadTextView.setVisibility(View.VISIBLE);
+
+            }
+        }
+    }
+
 
     public void launchSecondActivity(View view) {
         Log.d(LOG_TAG,"Button clicked");

@@ -14,8 +14,6 @@ public class SecondActivity extends AppCompatActivity {
     private EditText mReply;
     private static final String LOG_tag = SecondActivity.class.getSimpleName();
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
